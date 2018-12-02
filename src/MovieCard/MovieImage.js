@@ -1,4 +1,5 @@
-import React, {Component} from "react";
+import React from "react";
+import PropTypes from 'prop-types';
 import styled from "styled-components";
 import AddFavorite from '../assets/svg/add_favorite.svg';
 import RemoveFavorite from '../assets/svg/remove_favorite.svg';
@@ -15,44 +16,50 @@ const Icon = styled.img`
     fill: rgb(200,200,200)
   }
 `;
-const ImageWrapper = styled.div`
-`;
 
-export class  MovieImage extends Component {
+export class  MovieImageRaw extends React.Component {
+
+    static propTypes = {
+        movieData: PropTypes.object,
+        median: PropTypes.number
+    }
 
     constructor(props) {
         super();
         this.state = {
             isFav: props.context.isFav(props.movieData.id)
         }
-
-        this.toggleFav = this.toggleFav.bind(this);
+        this.toggleFav = this.toggleFav.bind(this);      
+        console.log(JSON.stringify(props.context));
     }
 
-    toggleFav() {        
+    toggleFav() {
+        const isFav = this.props.context.isFav(this.props.movieData.id);
 
-        if(this.state.isFav) {
+        if(isFav) {                       
             this.props.context.removeFavorite(this.props.movieData);
-            this.setState({isFav: false});
-        } else {
+        } else {                        
             this.props.context.addFavorite(this.props.movieData);
-            this.setState({isFav: true});        
         }
     }
 
-    render(){            
+    render(){
+       // const isFav = this.props.context.isFav(this.props.movieData.id);                
+       const isFav = true;
         return (      
-            <ImageWrapper>
+            <div>
                 <img 
-                width="200px"
-                height="250px"
-                src={this.props.movieData.poster.fullPath}
-                alt="nonempty"/>                  
-                <Icon src={this.state.isFav ? RemoveFavorite: AddFavorite}
+                    width="140px"
+                    height="200px"
+                    src={this.props.movieData.poster.fullPath}
+                    alt="nonempty"/>                  
+                <Icon src={isFav ? RemoveFavorite: AddFavorite}
                       onClick={this.toggleFav}/>                
-            </ImageWrapper>
+            </div>
         );
     }
 }
 
-export default withFavContext(MovieImage);
+const MovieImage = withFavContext(MovieImageRaw);
+
+export default MovieImage;

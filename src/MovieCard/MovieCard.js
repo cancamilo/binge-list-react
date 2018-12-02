@@ -16,7 +16,7 @@ export default class MovieCard extends Component {
     return (
       <CardWrapper>          
           <MovieImage movieData={this.props.movieData}/>
-          <MediaQuery query="(min-device-width: 400px)">
+          <MediaQuery query="(min-device-width: 900px)">
             <MovieDetails details={this.props.movieData} median={this.props.median}/>
           </MediaQuery>
       </CardWrapper>

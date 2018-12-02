@@ -7,7 +7,7 @@ import { DetailsWrapper, CardRow, Title,
          LightText, Icon, OverViewText, 
          FooterLine, InfoAction } from './CardStyles';
 
-const CardDetails = props => {
+const MovieDetails = props => {
     const maxTitleLength = 20;
     const maxReviewLength = 100;
 
@@ -53,4 +53,4 @@ const CardDetails = props => {
     );
 }
 
-export default CardDetails;
+export default MovieDetails;

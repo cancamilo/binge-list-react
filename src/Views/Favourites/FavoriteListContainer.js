@@ -9,11 +9,17 @@ export class FavoriteListContainer extends Component {
     this.state = {
       ok: true
     };
+    this.mapToArray = this.mapToArray.bind(this);
+  }
+
+  mapToArray() {
+      return Object.keys(this.props.context.state.favList).map( key => this.props.context.state.favList[key]);
   }
 
   render() {
-    console.log(JSON.stringify(this.props.context, null, 4));
-    return <MovieListComponent list={this.props.context.state.favList}/>
+    //console.log(JSON.stringify(this.props.context, null, 4));
+    const renderList = this.mapToArray(this.props.context.state.favList);
+    return <MovieListComponent list={renderList} />
   
   }
 }
