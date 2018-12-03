@@ -9,6 +9,7 @@ const ListWrapper = styled.div`
     margin: auto;
     padding: 0px;
     flex-wrap: wrap;
+    justify-content: space-around;
 `;
 
 export default class MovieListComponent extends Component {

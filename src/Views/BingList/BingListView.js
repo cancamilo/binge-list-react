@@ -6,7 +6,7 @@ import BingListContainer from './BingListContainer';
 
 const BingListWrapper = styled.div`  
     margin: auto;
-    padding: 1px;    
+    padding: 1px;        
 `;
 
 export default class BingListView extends Component {
@@ -19,9 +19,8 @@ export default class BingListView extends Component {
       return (
         <BingListWrapper>
             <BingHeader 
-              	navigateToFav={this.props.navigateToFav}
-                searchMovies={this.changeSearch}/>      
-            <BingListContainer/>
+              	navigateToFav={this.props.navigateToFav}/>      
+            <BingListContainer />
         </BingListWrapper>
       )
     }

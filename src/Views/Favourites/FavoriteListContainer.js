@@ -17,7 +17,6 @@ export class FavoriteListContainer extends Component {
   }
 
   render() {
-    //console.log(JSON.stringify(this.props.context, null, 4));
     const renderList = this.mapToArray(this.props.context.state.favList);
     return <MovieListComponent list={renderList} />
   

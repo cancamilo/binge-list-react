@@ -39,15 +39,21 @@ export default class SearchBar extends Component {
   constructor(props) {
     super();
     this.textInput = React.createRef();
+    this.onSearchClicked = this.onSearchClicked.bind(this);
+    
+  }
+  onSearchClicked() {
+    const searchText = this.textInput.current.value;
+    this.props.handleSearch(searchText);
   }
   render() {
     return (
       <SearchBarFrame>
         <div>
-          <Input ref={this.textInput} placeholder="Enter Genre"/>                
+          <Input ref={this.textInput} defaultValue={this.props.initialText} placeholder="Enter Genre"/>                
           <Img src={SearchLine} alt="search"/>          
         </div>                
-        <SearchBtn>
+        <SearchBtn onClick={this.onSearchClicked}>
           Search
         </SearchBtn>
       </SearchBarFrame>

@@ -29,8 +29,7 @@ export class  MovieImageRaw extends React.Component {
         this.state = {
             isFav: props.context.isFav(props.movieData.id)
         }
-        this.toggleFav = this.toggleFav.bind(this);      
-        console.log(JSON.stringify(props.context));
+        this.toggleFav = this.toggleFav.bind(this);              
     }
 
     toggleFav() {
@@ -44,8 +43,7 @@ export class  MovieImageRaw extends React.Component {
     }
 
     render(){
-       // const isFav = this.props.context.isFav(this.props.movieData.id);                
-       const isFav = true;
+       const isFav = this.props.context.isFav(this.props.movieData.id);                       
         return (      
             <div>
                 <img 

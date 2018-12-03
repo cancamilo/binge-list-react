@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Favorites from "../../assets/svg/favorites.svg";
 
 const HeaderFrame = styled.div`
-  width: 550px;
+  width: 350px;
   margin: auto;
 `;
 
