@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import MovieListComponent from '../../shared/MovieListComponent';
 import {withFavContext } from '../../App/FavListProvider';
+import { CalculateMedian } from '../../tools/mathHelper';
 
 export class FavoriteListContainer extends Component {
   
@@ -15,10 +16,11 @@ export class FavoriteListContainer extends Component {
   mapToArray() {
       return Object.keys(this.props.context.state.favList).map( key => this.props.context.state.favList[key]);
   }
-
+  
   render() {
     const renderList = this.mapToArray(this.props.context.state.favList);
-    return <MovieListComponent list={renderList} />
+    const median = CalculateMedian([...renderList]);
+    return <MovieListComponent list={renderList} median={median} />
   
   }
 }
